@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+    <div class="note_content">
+        <p><a href="{% url 'note' %}">Все категории</a></p>
+        {% for note in notes %}
+        <p>
+            <a href="{{note.get_absolute_url}}">{{note}}</a>
+        </p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

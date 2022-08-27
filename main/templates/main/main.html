@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css'%}">
+    <title>Main</title>
+</head>
+<body>
+<header>
+    <div class="nav_content">
+        <nav>
+            <ul>
+                <li><a href="{% url 'note' %}">К записям</a></li>
+                <li><a href="admin">Aдминка</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+            </ul>
+        </nav>
+    </div>
+
+  
+</header>
+<main></main>
+<footer></footer>
+
+</body>
+</html>

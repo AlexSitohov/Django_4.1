@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css'%}">
+    <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <div class="nav_content">
+        <nav>
+            <ul>
+                <li><a href="{% url 'main' %}">На главную</a></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<main>
+
+    <div class="about_content">
+        <p>Тестовый сайт на django</p>
+    </div>
+</main>
+
+
+</body>
+</html>

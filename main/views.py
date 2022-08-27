@@ -3,4 +3,4 @@ from django.shortcuts import render, redirect
 
 
 def main(request):
-    return HttpResponse('<h1>Hello issa main page</h1>')
+    return render(request, 'main/main.html')
