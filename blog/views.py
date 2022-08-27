@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
+from blog.forms import *
 from blog.models import *
 
 
@@ -11,16 +12,6 @@ def blog(request):
 
     }
     return render(request, 'blog/base.html', context)
-
-
-def categories(request, categories_int):
-    return HttpResponse(f'<h1>Issa category: {categories_int}</h1>')
-
-
-def year_check(request, year):
-    if 2020 > int(year) or int(year) > 2022:
-        raise Http404()
-    return HttpResponse(f'<h1>Issa year: {year}</h1>')
 
 
 def page_not_found(request, exception):
@@ -58,3 +49,22 @@ def category_view(request, category_slug):
         'categories': categories
     }
     return render(request, 'blog/category.html', context)
+
+
+def add_view(request):
+    if request.method == 'POST':
+        form = AddNote(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('#')
+            except:
+                form.add_error(None, 'Ошибка')
+
+    else:
+        form = AddNote()
+    context = {
+        'form': form,
+
+    }
+    return render(request, 'blog/add.html', context)

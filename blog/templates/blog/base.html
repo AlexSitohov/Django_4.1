@@ -11,9 +11,12 @@
     <div class="nav_content">
         <nav>
             <ul>
-                <li><a href="{% url 'main' %}">На главную</a></li>
-                <li></li>
-                <li></li>
+                <li><a href="{% url 'main' %}">Главная страница</a></li>
+                <li><a href="{% url 'blog' %}">К записям</a></li>
+                <li><a href="/admin/">Aдминка</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'add' %}">Добавить запись</a></li>
+
             </ul>
         </nav>
     </div>
@@ -22,6 +25,9 @@
 <main>
     <div class="category_content">
         <ul>
+            <li>
+
+            </li>
             {% for category in categories %}
             <li>
                 <a href="{{category.get_absolute_url}}">{{category}}</a>
